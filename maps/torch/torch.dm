@@ -14,7 +14,7 @@
 	#include "torch_presets.dm"
 	#include "torch_procs.dm"
 	#include "torch_ranks.dm"
-	#include "torch_security_state.dm"
+//	#include "torch_security_state.dm" //Modular overwrite for alert level lighting.
 	#include "torch_setup.dm"
 	#include "torch_shuttles.dm"
 	#include "torch_submaps.dm"
@@ -23,7 +23,7 @@
 
 	#include "datums/uniforms.dm"
 	#include "datums/uniforms_expedition.dm"
-	#include "datums/uniforms_fleet.dm"
+//	#include "datums/uniforms_fleet.dm" //Modular overwrite. Go check modular_boh for the NTEF version!
 	#include "datums/game_modes/torch_traitor.dm"
 	#include "datums/game_modes/torch_revolution.dm"
 	#include "datums/game_modes/torch_siege.dm"
@@ -61,9 +61,9 @@
 	#include "items/solbanner.dm"
 	#include "items/explo_shotgun.dm"
 	#include "items/mecha.dm"
-	#include "items/memos.dm"
+	#include "items/summarydocuments.dm"
 
-	#include "items/clothing/ec_skillbadges.dm"
+/*	#include "items/clothing/ec_skillbadges.dm"		//Modular Vesta overwrite. Check modular_boh for these files!
 	#include "items/clothing/solgov-accessory.dm"
 	#include "items/clothing/solgov-armor.dm"
 	#include "items/clothing/solgov-feet.dm"
@@ -76,7 +76,7 @@
 	#include "items/clothing/terran-hands.dm"
 	#include "items/clothing/terran-head.dm"
 	#include "items/clothing/terran-suit.dm"
-	#include "items/clothing/terran-under.dm"
+	#include "items/clothing/terran-under.dm" */
 
 	#include "items/weapon/storage/wallets.dm"
 
@@ -130,13 +130,13 @@
 	#include "structures/closets/exploration.dm"
 
 	#include "loadout/_defines.dm"
-	#include "loadout/loadout_accessories.dm"
-	#include "loadout/loadout_augments.dm"
+//	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_ec_skillbadges.dm"
 	#include "loadout/loadout_eyes.dm"
 	#include "loadout/loadout_gloves.dm"
 	#include "loadout/loadout_head.dm"
 	#include "loadout/loadout_shoes.dm"
+	#include "loadout/loadout_storage.dm"
 	#include "loadout/loadout_suit.dm"
 	#include "loadout/loadout_uniform.dm"
 	#include "loadout/loadout_xeno.dm"
@@ -152,6 +152,7 @@
 	#include "z2_transit.dmm"
 
 	#include "../away/empty.dmm"
+	#include "../away/ascent/ascent.dm"
 	#include "../away/mining/mining.dm"
 	#include "../away/derelict/derelict.dm"
 	#include "../away/bearcat/bearcat.dm"
@@ -163,6 +164,7 @@
 	#include "../away/blueriver/blueriver.dm"
 	#include "../away/slavers/slavers_base.dm"
 	#include "../away/mobius_rift/mobius_rift.dm"
+	#include "../away/icarus/icarus.dm"
 	#include "../away/errant_pisces/errant_pisces.dm"
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/voxship/voxship.dm"
@@ -172,7 +174,54 @@
 	#include "../away/mininghome/mininghome.dm"
 	#include "../away/scavver/scavver_gantry.dm"
 	#include "../away/verne/verne.dm"
-//	#include "../away/ascent_caulship/_ascent_caulship.dm"
+
+	#include "../../code/datums/music_tracks/chasing_time.dm"
+
+//###########################################################################################################
+//# VESTA.BAY ################# ADDS FILES MANDATORY WHENEVER THE TORCH MAP IS CALLED #######################
+//###########################################################################################################
+
+	#include "../../modular_boh/code/game/ranks/vesta_ranks.dm"
+	#include "../../modular_boh/code/game/structures/closets/closets.dm"
+	#include "../../modular_boh/code/items/cards_ids.dm"
+	#include "../../modular_boh/code/items/clothing/boh_under.dm"
+	#include "../../modular_boh/code/modules/datums/uniforms_marine_corps.dm"
+	#include "../../modular_boh/code/modules/datums/uniforms_exp_fleet.dm"
+	#include "../../modular_boh/code/modules/jobs/jobs.dm"
+	#include "../../modular_boh/code/modules/jobs/torch_jobs_vesta.dm"
+	#include "../../modular_boh/code/modules/jobs/outfits/vesta_outfits.dm"
+	#include "../../modular_boh/code/modules/modular_computer/card.dm"
+	#include "../../modular_boh/code/items/clothing/ec_skillbadges.dm"
+	#include "../../modular_boh/code/items/clothing/solgov-accessory.dm"
+	#include "../../modular_boh/code/items/clothing/solgov-armor.dm"
+	#include "../../modular_boh/code/items/clothing/solgov-feet.dm"
+	#include "../../modular_boh/code/items/clothing/solgov-hands.dm"
+	#include "../../modular_boh/code/items/clothing/solgov-head.dm"
+	#include "../../modular_boh/code/items/clothing/solgov-suit.dm"
+	#include "../../modular_boh/code/items/clothing/solgov-under.dm"
+	#include "../../modular_boh/code/items/clothing/terran-accessory.dm"
+	#include "../../modular_boh/code/items/clothing/terran-feet.dm"
+	#include "../../modular_boh/code/items/clothing/terran-hands.dm"
+	#include "../../modular_boh/code/items/clothing/terran-head.dm"
+	#include "../../modular_boh/code/items/clothing/terran-suit.dm"
+	#include "../../modular_boh/code/items/clothing/terran-under.dm"
+	#include "../../modular_boh/maps/boh_areas.dm"
+	#include "../../modular_boh/loadouts/custom_loadouts.dm"
+	#include "../../modular_boh/loadouts/custom_loadouts_helpers.dm"
+	#include "../../modular_boh/code/modules/torch_security_state.dm"
+	#include "../../modular_boh/code/modules/culture_descriptor/culture/cultures_human.dm"
+	#include "../../modular_boh/code/modules/culture_descriptor/faction/factions_human.dm"
+	#include "../../modular_boh/code/modules/culture_descriptor/location/locations_human.dm"
+	#include "../../modular_boh/code/modules/mob/language/human/gaian.dm"
+	#include "../../modular_boh/code/modules/culture_descriptor/culture/cultures_ipc.dm"
+	#include "../../modular_boh/code/game/machinery/vending.dm"
+	#include "../../modular_boh/code/game/loadout/loadout_accessories.dm"
+	#include "../../modular_boh/loadouts/~defines.dm"
+	#include "../../modular_boh/code/modules/datums/uniform_vendor_boh.dm"
+
+//###########################################################################################################
+//# VESTA.BAY ################# ADDS FILES MANDATORY WHENEVER THE TORCH MAP IS CALLED #######################
+//###########################################################################################################
 
 	#define using_map_DATUM /datum/map/torch
 
@@ -181,3 +230,4 @@
 	#warn A map has already been included, ignoring Torch
 
 #endif
+
