@@ -152,7 +152,7 @@
 	#include "z2_transit.dmm"
 
 	#include "../away/empty.dmm"
-	#include "../away/ascent/ascent.dm"
+	#include "../away/ascent_caulship/_ascent_caulship.dm"
 	#include "../away/mining/mining.dm"
 	#include "../away/derelict/derelict.dm"
 	#include "../away/bearcat/bearcat.dm"
