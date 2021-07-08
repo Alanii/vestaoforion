@@ -6,14 +6,14 @@
 
 /obj/item/gunbox/attack_self(mob/living/user)
 	var/list/options = list()
-	options["Energy - Smartgun"] = list(/obj/item/weapon/gun/energy/gun/secure)
-	options["Taser - Stun Revolver"] = list(/obj/item/weapon/gun/energy/stunrevolver/secure)
+	options["Energy - Smartgun"] = list(/obj/item/gun/energy/gun/secure)
+	options["Taser - Stun Revolver"] = list(/obj/item/gun/energy/stunrevolver/secure)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
 		for(var/new_type in things_to_spawn)
 			var/atom/movable/AM = new new_type(get_turf(src))
-			if(istype(AM, /obj/item/weapon/gun/))
+			if(istype(AM, /obj/item/gun/))
 				to_chat(user, "You have chosen \the [AM]. This is probably worth more than what your paycheck can be used for.")
 		qdel(src)
 
@@ -26,16 +26,16 @@
 
 /obj/item/gunbox/captain/attack_self(mob/living/user)
 	var/list/options = list()
-	options["Ballistic - .454 Revolver"] = list(/obj/item/weapon/gun/projectile/revolver/medium/captain/large,/obj/item/weapon/storage/fancy/cigar,/obj/item/ammo_magazine/speedloader/large)
-	options["Ballistic - Mk58 semi-automatic"] = list(/obj/item/weapon/gun/projectile/pistol/sec/lethal,/obj/item/ammo_magazine/pistol,/obj/item/weapon/storage/fancy/cigar)
-	options["Energy - EPP"] = list(/obj/item/weapon/gun/energy/pulse_rifle/pistol/epp,/obj/item/documents/epp)
-	options["Energy - Smart Service Revolver"] = list(/obj/item/weapon/gun/energy/revolver/secure)
+	options["Ballistic - .454 Revolver"] = list(/obj/item/gun/projectile/revolver/medium/captain/large,/obj/item/storage/fancy/cigar,/obj/item/ammo_magazine/speedloader/large)
+	options["Ballistic - Mk58 semi-automatic"] = list(/obj/item/gun/projectile/pistol/sec/lethal,/obj/item/ammo_magazine/pistol,/obj/item/storage/fancy/cigar)
+	options["Energy - EPP"] = list(/obj/item/gun/energy/pulse_rifle/pistol/epp,/obj/item/documents/epp)
+	options["Energy - Smart Service Revolver"] = list(/obj/item/gun/energy/revolver/secure)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
 		for(var/new_type in things_to_spawn)
 			var/atom/movable/AM = new new_type(get_turf(src))
-			if(istype(AM, /obj/item/weapon/gun/))
+			if(istype(AM, /obj/item/gun/))
 				to_chat(user, "You have chosen \the [AM].")
 		qdel(src)
 
@@ -48,16 +48,16 @@
 
 /obj/item/gunbox/executive/attack_self(mob/living/user)
 	var/list/options = list()
-	options["Ballistic - Mk58 semi-automatic"] = list(/obj/item/weapon/gun/projectile/pistol/sec/lethal,/obj/item/ammo_magazine/pistol,/obj/item/weapon/storage/fancy/cigar)
-	options["Ballistic - Magnum Revolver"] = list(/obj/item/weapon/gun/projectile/revolver/medium/captain/large/xo,/obj/item/weapon/storage/fancy/cigar,/obj/item/ammo_magazine/speedloader/magnum)
-	options["Energy - EPP"] = list(/obj/item/weapon/gun/energy/pulse_rifle/pistol/epp,/obj/item/documents/epp)
-	options["Energy - Smart Service Revolver"] = list(/obj/item/weapon/gun/energy/revolver/secure)
+	options["Ballistic - Mk58 semi-automatic"] = list(/obj/item/gun/projectile/pistol/sec/lethal,/obj/item/ammo_magazine/pistol,/obj/item/storage/fancy/cigar)
+	options["Ballistic - Magnum Revolver"] = list(/obj/item/gun/projectile/revolver/medium/captain/large/xo,/obj/item/storage/fancy/cigar,/obj/item/ammo_magazine/speedloader/magnum)
+	options["Energy - EPP"] = list(/obj/item/gun/energy/pulse_rifle/pistol/epp,/obj/item/documents/epp)
+	options["Energy - Smart Service Revolver"] = list(/obj/item/gun/energy/revolver/secure)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
 		for(var/new_type in things_to_spawn)
 			var/atom/movable/AM = new new_type(get_turf(src))
-			if(istype(AM, /obj/item/weapon/gun/))
+			if(istype(AM, /obj/item/gun/))
 				to_chat(user, "You have chosen \the [AM].")
 		qdel(src)
 
@@ -72,14 +72,14 @@
 
 /obj/item/ascentbox/attack_self(mob/living/user)
 	var/list/options = list()
-	options["Support Alate"] = list(/obj/item/stack/medical/resin/large,/obj/item/weapon/gun/energy/particle/support)
-	options["Enforcering Alate"] = list(/obj/item/weapon/gun/energy/particle/small,/obj/item/weapon/storage/med_pouch/ascent)
+	options["Support Alate"] = list(/obj/item/stack/medical/resin/large,/obj/item/gun/energy/particle/support)
+	options["Enforcering Alate"] = list(/obj/item/gun/energy/particle/small,/obj/item/storage/med_pouch/ascent)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
 		for(var/new_type in things_to_spawn)
 			var/atom/movable/AM = new new_type(get_turf(src))
-			if(istype(AM, /obj/item/weapon/gun/))
+			if(istype(AM, /obj/item/gun/))
 				to_chat(user, "You have chosen \the [AM]. This is probably worth more than what your Gyne thinks of you.")
 		qdel(src)
 
@@ -124,33 +124,33 @@
 
 //# PSYKER ################################################################
 
-/obj/item/weapon/storage/box/psykerimplants
+/obj/item/storage/box/psykerimplants
 	name = "psi dampeners"
 	desc = "Box of stuff used to implant psionic monitoring software."
 	icon_state = "implant"
 	item_state = "syringe_kit"
-	startswith = list(/obj/item/weapon/implanter/psi = 1,
-				/obj/item/weapon/implantcase/psyker = 6)
+	startswith = list(/obj/item/implanter/psi = 1,
+				/obj/item/implantcase/psyker = 6)
 
-/obj/item/weapon/storage/box/large/psinullers
+/obj/item/storage/box/large/psinullers
 	name = "psi dampening items"
 	desc = "Psionic dampening items for willing psions to suppress their powers."
 	icon_state = "largebox"
 	w_class = ITEM_SIZE_LARGE
 	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
-	startswith = list(/obj/item/weapon/material/coin/nullglass = 7, /obj/item/weapon/material/cross/nullglass = 7)
+	startswith = list(/obj/item/material/coin/nullglass = 7, /obj/item/material/cross/nullglass = 7)
 
-/obj/item/weapon/storage/box/large/psinullers/disrupts_psionics()
+/obj/item/storage/box/large/psinullers/disrupts_psionics()
 	return FALSE
 
-/obj/item/weapon/storage/secure/briefcase/jerraman
+/obj/item/storage/secure/briefcase/jerraman
 	name = "secure vial carrier"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "fbriefcase"
 	item_state = "fbriefcase"
 	desc = "A large briefcase designed to carry vials of chemicals, with a digital locking system."
-	startswith = list(/obj/item/weapon/reagent_containers/glass/beaker/vial/jerraman = 3, /obj/item/weapon/storage/box/syringes = 1)
+	startswith = list(/obj/item/reagent_containers/glass/beaker/vial/jerraman = 3, /obj/item/storage/box/syringes = 1)
 
 //# PSYKER ################################################################
 

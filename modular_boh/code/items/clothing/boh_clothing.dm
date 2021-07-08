@@ -6,7 +6,7 @@
 	icon_override = 'modular_boh/icon/mob/onmob_cloak.dmi'
 	accessory_icons = list(slot_tie_str = 'modular_boh/icon/mob/onmob_cloak.dmi', slot_w_uniform_str = 'modular_boh/icon/mob/onmob_cloak.dmi', slot_wear_suit_str = 'modular_boh/icon/mob/onmob_cloak.dmi')
 	var/fire_resist = T0C+100
-	allowed = list(/obj/item/weapon/tank/emergency)
+	allowed = list(/obj/item/tank/emergency)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
@@ -171,11 +171,11 @@
 	icon_state = "navy"
 	force = 3
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT, 
-		bullet = ARMOR_BALLISTIC_MINOR, 
-		laser = ARMOR_LASER_MINOR, 
-		energy = ARMOR_ENERGY_MINOR, 
-		bomb = ARMOR_BOMB_PADDED, 
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_MINOR
 		)
 	siemens_coefficient = 0.7

@@ -68,7 +68,7 @@
 	name = OUTFIT_JOB_NAME("Explorer - Fleet")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/exploration
 	shoes = /obj/item/clothing/shoes/dutyboots
-	id_types = list(/obj/item/weapon/card/id/torch/crew/explorer)
+	id_types = list(/obj/item/card/id/torch/crew/explorer)
 	pda_type = /obj/item/modular_computer/pda/explorer
 	l_ear = /obj/item/device/radio/headset/exploration
 
@@ -76,19 +76,19 @@
 	name = OUTFIT_JOB_NAME("Technician Explorer")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/exploration
 	shoes = /obj/item/clothing/shoes/dutyboots
-	id_types = list(/obj/item/weapon/card/id/torch/crew/explorer)
+	id_types = list(/obj/item/card/id/torch/crew/explorer)
 	pda_type = /obj/item/modular_computer/pda/explorer
 	l_ear = /obj/item/device/radio/headset/exploration
-	backpack_contents = list(/obj/item/weapon/storage/belt/utility/full = 1)
+	backpack_contents = list(/obj/item/storage/belt/utility/full = 1)
 
 /decl/hierarchy/outfit/job/torch/crew/exploration/medic
 	name = OUTFIT_JOB_NAME("Medic Explorer")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/exploration
 	shoes = /obj/item/clothing/shoes/dutyboots
-	id_types = list(/obj/item/weapon/card/id/torch/crew/explorer)
+	id_types = list(/obj/item/card/id/torch/crew/explorer)
 	pda_type = /obj/item/modular_computer/pda/explorer
 	l_ear = /obj/item/device/radio/headset/exploration
-	backpack_contents = list(/obj/item/weapon/storage/firstaid/stab = 1)
+	backpack_contents = list(/obj/item/storage/firstaid/stab = 1)
 
 /***/
 
@@ -97,25 +97,25 @@
 	name = OUTFIT_JOB_NAME("Research Assistant - Fleet")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/exploration
 	shoes = /obj/item/clothing/shoes/dutyboots
-	id_types = list(/obj/item/weapon/card/id/torch/crew/research)
+	id_types = list(/obj/item/card/id/torch/crew/research)
 	pda_type = /obj/item/modular_computer/pda/science
 	l_ear = /obj/item/device/radio/headset/torchnanotrasen
 
 /decl/hierarchy/outfit/job/torch/crew/research/fleet/scientist
 	name = OUTFIT_JOB_NAME("Scientist - Fleet")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/exploration
-	id_types = list(/obj/item/weapon/card/id/torch/crew/research/scientist)
+	id_types = list(/obj/item/card/id/torch/crew/research/scientist)
 
 /decl/hierarchy/outfit/job/torch/crew/research/fleet/senior_scientist
 	name = OUTFIT_JOB_NAME("Senior Scientist - Fleet")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/exploration
-	id_types = list(/obj/item/weapon/card/id/torch/crew/research/senior_scientist)
+	id_types = list(/obj/item/card/id/torch/crew/research/senior_scientist)
 
 /decl/hierarchy/outfit/job/torch/crew/research/fleet/cso
 	name = OUTFIT_JOB_NAME("Chief Science Officer - Fleet")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/exploration
 	l_ear = /obj/item/device/radio/headset/heads/torchntdirector
-	id_types = list(/obj/item/weapon/card/id/torch/silver/research)
+	id_types = list(/obj/item/card/id/torch/silver/research)
 	pda_type = /obj/item/modular_computer/pda/heads/rd
 
 /***/
@@ -191,7 +191,7 @@
 	name = OUTFIT_JOB_NAME("Master at Arms")
 	uniform =  /obj/item/clothing/under/solgov/utility/fleet/security
 	shoes = /obj/item/clothing/shoes/dutyboots
-	id_types = list(/obj/item/weapon/card/id/torch/crew/security)
+	id_types = list(/obj/item/card/id/torch/crew/security)
 	pda_type = /obj/item/modular_computer/pda/security
 
 /decl/hierarchy/outfit/job/torch/crew/security/maa/fleet
@@ -203,7 +203,7 @@
 	name = OUTFIT_JOB_NAME("Brig Chief - Fleet")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/security
 	shoes = /obj/item/clothing/shoes/dutyboots
-	id_types = list(/obj/item/weapon/card/id/torch/crew/security/brigchief)
+	id_types = list(/obj/item/card/id/torch/crew/security/brigchief)
 	pda_type = /obj/item/modular_computer/pda/security
 
 /decl/hierarchy/outfit/job/torch/crew/security/forensic_tech/fleet
@@ -249,7 +249,7 @@
 
 /decl/hierarchy/outfit/job/torch/crew/supply/tech/fleet/prospector
 	name = OUTFIT_JOB_NAME("Salvage Technician - Fleet")
-	id_types = list(/obj/item/weapon/card/id/torch/passenger/research/mining)
+	id_types = list(/obj/item/card/id/torch/passenger/research/mining)
 	pda_type = /obj/item/modular_computer/pda/mining
 	flags = OUTFIT_FLAGS_JOB_DEFAULT | OUTFIT_EXTENDED_SURVIVAL
 	l_ear = /obj/item/device/radio/headset/headset_mining
@@ -279,7 +279,7 @@
 //PDAV
 /decl/hierarchy/outfit/job/torch/crew/command/psiadvisor/equip_ids(var/mob/living/carbon/human/H, var/rank, var/assignment, var/equip_adjustments)
 	. = ..()
-	var/obj/item/weapon/card/id/foundation_civilian/regis_card = new
+	var/obj/item/card/id/foundation_civilian/regis_card = new
 	if(rank)
 		regis_card.rank = rank
 	if(assignment)
@@ -294,8 +294,8 @@
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/dress
 	pda_type = /obj/item/modular_computer/pda/heads
-	id_types = list(/obj/item/weapon/card/id/torch/crew/psiadvisor)
-	l_hand =   /obj/item/weapon/storage/briefcase/foundation_inert
+	id_types = list(/obj/item/card/id/torch/crew/psiadvisor)
+	l_hand =   /obj/item/storage/briefcase/foundation_inert
 	holster =  /obj/item/clothing/accessory/storage/holster/waist
 
 /decl/hierarchy/outfit/job/torch/crew/command/psiadvisor/nt
@@ -304,7 +304,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/suit/black/agent
 	gloves = /obj/item/clothing/ring/material/nullglass
 	shoes = /obj/item/clothing/shoes/dutyboots
-	l_hand =   /obj/item/weapon/storage/briefcase/foundation/nt
+	l_hand =   /obj/item/storage/briefcase/foundation/nt
 	holster =  /obj/item/clothing/accessory/storage/holster/armpit
 
 /decl/hierarchy/outfit/job/torch/crew/representative
@@ -313,7 +313,7 @@
 	uniform = /obj/item/clothing/under/rank/internalaffairs/plain/solgov
 	suit = /obj/item/clothing/suit/storage/toggle/suit/black
 	shoes = /obj/item/clothing/shoes/laceup
-	id_types = list(/obj/item/weapon/card/id/torch/crew/representative)
+	id_types = list(/obj/item/card/id/torch/crew/representative)
 	pda_type = /obj/item/modular_computer/pda/heads/paperpusher
 
 //#######
@@ -325,18 +325,18 @@
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat/marine/exploration
 	shoes = /obj/item/clothing/shoes/dutyboots
 	l_ear = /obj/item/device/radio/headset/infantry
-	id_types = list(/obj/item/weapon/card/id/torch/crew/infantry)
+	id_types = list(/obj/item/card/id/torch/crew/infantry)
 
 /decl/hierarchy/outfit/job/torch/crew/infantry/squad_lead
 	name = OUTFIT_JOB_NAME("Squad Leader")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat/marine/command
-	id_types = list(/obj/item/weapon/card/id/torch/crew/infantry/infcom)
+	id_types = list(/obj/item/card/id/torch/crew/infantry/infcom)
 	l_ear = /obj/item/device/radio/headset/infcom
 
 /decl/hierarchy/outfit/job/torch/crew/infantry/combat_tech
 	name = OUTFIT_JOB_NAME("Combat Technician")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat/marine/exploration
-	id_types = list(/obj/item/weapon/card/id/torch/crew/infantry/inftech)
+	id_types = list(/obj/item/card/id/torch/crew/infantry/inftech)
 	pda_type = /obj/item/modular_computer/pda/engineering
 	l_ear = /obj/item/device/radio/headset/inftech
 
@@ -347,7 +347,7 @@
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/command
 	shoes = /obj/item/clothing/shoes/dutyboots
 	l_ear = /obj/item/device/radio/headset/sea
-	id_types = list(/obj/item/weapon/card/id/torch/crew/sea)
+	id_types = list(/obj/item/card/id/torch/crew/sea)
 	pda_type = /obj/item/modular_computer/pda/heads
 
 /decl/hierarchy/outfit/job/torch/crew/command/sea/marine
@@ -355,7 +355,7 @@
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat/marine/command
 	shoes = /obj/item/clothing/shoes/dutyboots
 	l_ear = /obj/item/device/radio/headset/sea
-	id_types = list(/obj/item/weapon/card/id/torch/crew/sea)
+	id_types = list(/obj/item/card/id/torch/crew/sea)
 	pda_type = /obj/item/modular_computer/pda/heads
 
 //## RESEARCH ROBOTICIST
@@ -364,7 +364,7 @@
 	name = OUTFIT_JOB_NAME("Roboticist - Torch")
 	uniform = /obj/item/clothing/under/rank/roboticist
 	shoes = /obj/item/clothing/shoes/black
-	id_types = list(/obj/item/weapon/card/id/torch/crew/research/roboticist)
+	id_types = list(/obj/item/card/id/torch/crew/research/roboticist)
 	pda_type = /obj/item/modular_computer/pda/roboticist
 
 /decl/hierarchy/outfit/job/torch/crew/research/roboticist/fleet
@@ -380,5 +380,5 @@
 	uniform = /obj/item/clothing/under/det/grey
 	suit = /obj/item/clothing/suit/storage/toggle/agent_jacket
 	shoes = /obj/item/clothing/shoes/dress
-	id_types = list(/obj/item/weapon/card/id/torch/crew/representative_guard)
+	id_types = list(/obj/item/card/id/torch/crew/representative_guard)
 	pda_type = /obj/item/modular_computer/pda/heads/paperpusher

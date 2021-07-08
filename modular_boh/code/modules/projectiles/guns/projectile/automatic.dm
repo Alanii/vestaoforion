@@ -1,10 +1,10 @@
 // Skrell ""Shotgun"", but it fits much better under automatics.
 
-/obj/item/weapon/gun/projectile/automatic/skrell
+/obj/item/gun/projectile/automatic/skrell
 	name = "QX-2 Miniaturized Railgun"
 	desc = "Modeled after VT-3, the Qerr Xira-2 or, as refered in Sol, QX-2, is a miniaturized railgun popular with SDTF squadrons. An internal microfusion cell and a sizeable ammo capacity both guarantee reliability even on prolonged engagements."
 	icon = 'modular_boh/icon/obj/guns/skrell_shotgun.dmi'
-	icon_state = "skrellshotgun" 
+	icon_state = "skrellshotgun"
 	item_state = "skrellshotgun"
 	safety_icon = "safety"
 	item_icons = list(
@@ -27,8 +27,8 @@
 	bulk = GUN_BULK_RIFLE
 	handle_casings = CLEAR_CASINGS
 	firemodes = list()
-	
-/obj/item/weapon/gun/projectile/automatic/skrell/on_update_icon()
+
+/obj/item/gun/projectile/automatic/skrell/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "skrellshotgun-[round(ammo_magazine.stored_ammo.len,4)]"

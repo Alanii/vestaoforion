@@ -91,12 +91,12 @@
 
 /datum/gear/utility/crowbar
 	display_name = "Crowbar"
-	path = /obj/item/weapon/crowbar
+	path = /obj/item/crowbar
 
 datum/gear/utility/crayonmre
 	display_name = "Crayon MRE"
 	cost = 31
-	path = /obj/item/weapon/storage/mre/menu11
+	path = /obj/item/storage/mre/menu11
 
 /datum/gear/cooler_ipc
 	display_name = "Cooling unit (IPC)"
@@ -147,14 +147,14 @@ datum/gear/utility/crayonmre
 	display_name = "MRE selection"
 	description = "A vacuum-sealed bag containing a day's worth of nutrients for an adult in strenuous situations."
 	cost = 2
-	path = /obj/item/weapon/storage/mre
+	path = /obj/item/storage/mre
 
 /datum/gear/mre/New()
 	..()
 	var/mre = list()
-	mre["Standard mre"] = /obj/item/weapon/storage/mre/random
-	mre["Vegan mre"] = /obj/item/weapon/storage/mre/menu9
-	mre["Protein mre"] = /obj/item/weapon/storage/mre/menu10
+	mre["Standard mre"] = /obj/item/storage/mre/random
+	mre["Vegan mre"] = /obj/item/storage/mre/menu9
+	mre["Protein mre"] = /obj/item/storage/mre/menu10
 	gear_tweaks += new /datum/gear_tweak/path(mre)
 
 /datum/gear/accessory/custom_medal
@@ -286,7 +286,7 @@ datum/gear/utility/crayonmre
 
 /datum/gear/tactical/combatknife
 	display_name = "Combat knife"
-	path = /obj/item/weapon/material/knife/combat
+	path = /obj/item/material/knife/combat
 	cost = 3
 	allowed_roles = ARMORED_ROLES
 	allowed_branches = TACTICOOL_BRANCHES

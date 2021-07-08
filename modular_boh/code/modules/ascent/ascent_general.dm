@@ -1,15 +1,15 @@
 /////////
 // purple greytide box and shiz
 /////////
-/obj/item/weapon/storage/toolbox/ascent
+/obj/item/storage/toolbox/ascent
 	name = "odd toolbox"
 	icon_state = "syndicate"
 	item_state = "toolbox_syndi"
 	color = "#3b88bf"
-	startswith = list(/obj/item/clustertool, /obj/item/weapon/weldingtool/electric/mantid, /obj/item/weapon/crowbar/brace_jack/ascent, /obj/item/device/multitool/mantid)
+	startswith = list(/obj/item/clustertool, /obj/item/weldingtool/electric/mantid, /obj/item/crowbar/brace_jack/ascent, /obj/item/device/multitool/mantid)
 
 //crowbar
-/obj/item/weapon/crowbar/brace_jack/ascent
+/obj/item/crowbar/brace_jack/ascent
 	name = "odd maintenance jack"
 	desc = "A special crowbar that can be used to safely remove airlock braces from airlocks. \
 	This one appears oddly weighted."

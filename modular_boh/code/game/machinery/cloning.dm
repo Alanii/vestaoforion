@@ -166,10 +166,10 @@
 
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/clonepod/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/clonepod/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
-	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/modular_computer/pda))
+	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer/pda))
 		if(!check_access(W))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return
@@ -202,7 +202,7 @@
 		to_chat(user, "<span class='notice'>You load connection data from [src] to [M].</span>")
 		M.update_icon()
 		return
-	else if(istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
+	else if(istype(W, /obj/item/reagent_containers/food/snacks/meat))
 		var/biomass_to_add = 20
 		if(biomass + biomass_to_add > maximum_biomass)
 			to_chat(user, SPAN_WARNING("[src] gurgles and belches, then spits [W] back at you! Seems like it's full."))
@@ -338,11 +338,11 @@
 	biomass = maximum_biomass
 //Health Tracker Implant
 
-/obj/item/weapon/implant/health
+/obj/item/implant/health
 	name = "health implant"
 	var/healthstring = ""
 
-/obj/item/weapon/implant/health/proc/sensehealth()
+/obj/item/implant/health/proc/sensehealth()
 	if(!implanted)
 		return "ERROR"
 	else
@@ -356,7 +356,7 @@
 //Disk stuff.
 //The return of data disks?? Just for transferring between genetics machine/cloning machine.
 //TO-DO: Make the genetics machine accept them.
-/obj/item/weapon/disk/data
+/obj/item/disk/data
 	name = "Cloning Data Disk"
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
@@ -365,11 +365,11 @@
 	var/datum/dna2/record/buf = null
 	var/read_only = 0 //Well,it's still a floppy disk
 
-/obj/item/weapon/disk/data/proc/initializeDisk()
+/obj/item/disk/data/proc/initializeDisk()
 	buf = new
 	buf.dna=new
 
-/obj/item/weapon/disk/data/demo
+/obj/item/disk/data/demo
 	name = "data disk - 'God Emperor of Mankind'"
 	read_only = 1
 
@@ -384,7 +384,7 @@
 		//buf.dna.UI=list(0x0C8,0x0C8,0x0C8,0x0C8,0x0C8,0x0C8,0x000,0x000,0x000,0x000,0x161,0xFBD,0xDEF) // Farmer Jeff
 		buf.dna.UpdateUI()
 
-/obj/item/weapon/disk/data/monkey
+/obj/item/disk/data/monkey
 	name = "data disk - 'Mr. Muggles'"
 	read_only = 1
 
@@ -398,16 +398,16 @@
 		buf.dna.SE=new_SE
 		buf.dna.SetSEValueRange(GLOB.MONKEYBLOCK,0xDAC, 0xFFF)
 
-/obj/item/weapon/disk/data/New()
+/obj/item/disk/data/New()
 	..()
 	var/diskcolor = pick(0,1,2)
 	icon_state = "datadisk[diskcolor]"
 
-/obj/item/weapon/disk/data/attack_self(mob/user as mob)
+/obj/item/disk/data/attack_self(mob/user as mob)
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
-/obj/item/weapon/disk/data/examine(mob/user)
+/obj/item/disk/data/examine(mob/user)
 	..(user)
 	to_chat(user, text("The write-protect tab is set to [read_only ? "protected" : "unprotected"]."))
 	return
@@ -416,25 +416,25 @@
  *	Diskette Box
  */
 
-/obj/item/weapon/storage/box/disks
+/obj/item/storage/box/disks
 	name = "Diskette Box"
 	icon_state = "disk_kit"
 
-/obj/item/weapon/storage/box/disks/New()
+/obj/item/storage/box/disks/New()
 	..()
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
 
 /*
  *	Manual -- A big ol' manual.
  */
 
-/obj/item/weapon/paper/Cloning
+/obj/item/paper/Cloning
 	name = "H-87 Cloning Apparatus Manual"
 	info = {"<h4>Getting Started</h4>
 	Congratulations, your station has purchased the H-87 industrial cloning device!<br>
@@ -474,7 +474,7 @@
 	construct_state = /decl/machine_construction/default/panel_closed
 	var/locked = 0
 	var/mob/living/carbon/occupant = null
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
+	var/obj/item/reagent_containers/glass/beaker = null
 	var/opened = 0
 
 /obj/machinery/dna_scannernew/relaymove(mob/user as mob)
@@ -505,7 +505,7 @@
 /obj/machinery/dna_scannernew/proc/eject_occupant()
 	src.go_out()
 	for(var/obj/O in src)
-		if((!istype(O,/obj/item/weapon/reagent_containers)) && (!istype(O,/obj/item/weapon/stock_parts/circuitboard/clonescanner)) && (!istype(O,/obj/item/weapon/stock_parts)) && (!istype(O,/obj/item/stack/cable_coil)))
+		if((!istype(O,/obj/item/reagent_containers)) && (!istype(O,/obj/item/stock_parts/circuitboard/clonescanner)) && (!istype(O,/obj/item/stock_parts)) && (!istype(O,/obj/item/stack/cable_coil)))
 			O.loc = get_turf(src)//Ejects items that manage to get in there (exluding the components)
 	if(!occupant)
 		for(var/mob/M in src)//Failsafe so you can get mobs out
@@ -541,10 +541,10 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item as obj, var/mob/user as mob)
+/obj/machinery/dna_scannernew/attackby(var/obj/item/item as obj, var/mob/user as mob)
 	..()
 
-	if(istype(item, /obj/item/weapon/reagent_containers/glass))
+	if(istype(item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return

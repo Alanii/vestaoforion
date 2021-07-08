@@ -10,6 +10,6 @@
 	check_records = 0
 	check_weapons = 0
 	check_anomalies = 0
-	installation = /obj/item/weapon/gun/energy/pulse_rifle/skrell/vesta
+	installation = /obj/item/gun/energy/pulse_rifle/skrell/vesta
 	color = COLOR_DARK_GRAY
 	req_access = list("ACCESS_SKRELLSCOUT")

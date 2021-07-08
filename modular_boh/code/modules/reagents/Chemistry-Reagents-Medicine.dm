@@ -77,14 +77,14 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(prob(1) && !(BP_IS_ROBOTIC(E)))
 				if(prob(75))
-					var/S = new /obj/item/weapon/material/shard(material_key = MATERIAL_BONE_GENERIC)
+					var/S = new /obj/item/material/shard(material_key = MATERIAL_BONE_GENERIC)
 					E.embed(S)
 					H.visible_message(
 						"<span class='danger'>A shard of bone breaks out of [H]'s [E.name]!</span>",
 						"<span class='danger'>You feel something tearing out of your [E.name]!</span>"
 						)
 				else
-					var/BS = new /obj/item/weapon/material/shard/shrapnel(material_key = MATERIAL_BONE_GENERIC)
+					var/BS = new /obj/item/material/shard/shrapnel(material_key = MATERIAL_BONE_GENERIC)
 					E.embed(BS, silent = 1)
 					to_chat(H, "<span class='warning'>You feel something break loose inside your [E.name].</span>")
 

@@ -435,3 +435,31 @@
 #define DO_INCAPACITATED     (-3)
 
 #define FAKE_INVIS_ALPHA_THRESHOLD 127 // If something's alpha var is at or below this number, certain things will pretend it is invisible.
+//##############################################################################################################
+//# MITHRA Adds specific customs into global mobs defines ###### Mithra had trouble locating these out of here #
+//##################################################################### VESTA.BAY ##############################
+
+#define SPECIES_SHELL		"Shell IPC"
+#define SPECIES_AKULA       "Akula"
+#define SPECIES_CUSTOM      "Genemodder"
+#define SPECIES_VULP        "Vulpkanin"
+#define SPECIES_VASS        "Vasilissan"
+#define SPECIES_TAJ         "Tajaran"
+#define SPECIES_OLDUNATHI   "Veteris'Unathi"
+#define SPECIES_HUMAN2      "Custom Human"
+#define SPECIES_SERGAL      "Sergal"
+
+
+//##############################################################################################################
+//# MITHRA Adds specific customs into global mobs defines ###### Mithra had trouble locating these out of here #
+//##################################################################### VESTA.BAY ##############################
+
+//##############################################################################################################
+//# Bastion Of Hestia Custom Specimen ##########################################################################
+//########################################################################## VESTA.BAY #########################
+
+#define SPECIES_PLASMASANS  "Phoron Restructurant Human"
+
+//##############################################################################################################
+//# Bastion Of Hestia Custom Specimen ##########################################################################
+//########################################################################## VESTA.BAY #########################

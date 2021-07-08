@@ -132,17 +132,17 @@
 	H.set_nutrition(400)	//Fills Hunger and Thirsty. Plasmasans doesnt feels hungry. The rate it 0.
 
 	if(H.get_equipped_item(slot_s_store))
-		H.equip_to_slot_or_del(new /obj/item/weapon/tank/phoron_big(H), slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/tank/phoron_big(H), slot_r_hand)
 		H.set_internals(H.r_hand)
 	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/tank/phoron_big(H), slot_s_store)
+		H.equip_to_slot_or_del(new /obj/item/tank/phoron_big(H), slot_s_store)
 		H.set_internals(H.s_store)
 
-	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/phoron(H.back), slot_in_backpack)
+	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
+		H.equip_to_slot_or_del(new /obj/item/storage/box/phoron(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/device/plasmasanssuit_changer(H.back), slot_in_backpack)
 	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/phoron(H.back), slot_l_hand)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/phoron(H.back), slot_l_hand)
 
 /datum/species/plasmasans/handle_environment_special(var/mob/living/carbon/human/H)
 	//Should they get exposed to oxygen, things get heated.

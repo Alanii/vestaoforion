@@ -1,4 +1,4 @@
-/obj/item/weapon/shield/energy/skrell
+/obj/item/shield/energy/skrell
 	name = "skrellian combat shield"
 	desc = "An alien shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
 	icon = 'modular_boh/icon/obj/weapons/skrellshield.dmi'
@@ -8,7 +8,7 @@
 		slot_r_hand_str = 'modular_boh/icon/mob/items/righthand.dmi',
 		)
 
-/obj/item/weapon/shield/energy/skrell/handle_shield(mob/user)
+/obj/item/shield/energy/skrell/handle_shield(mob/user)
 	if(!active)
 		return 0 //turn it on first!
 	. = ..()
@@ -19,14 +19,14 @@
 		spark_system.start()
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 
-/obj/item/weapon/shield/energy/skrell/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
+/obj/item/shield/energy/skrell/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
 		var/obj/item/projectile/P = damage_source
 		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
 			return (base_block_chance - round(damage / 2.5)) //block bullets and beams using the old block chance
 	return base_block_chance
 
-/obj/item/weapon/shield/energy/skrell/attack_self(mob/living/user as mob)
+/obj/item/shield/energy/skrell/attack_self(mob/living/user as mob)
 	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, "<span class='warning'>You beat yourself in the head with [src].</span>")
 		user.take_organ_damage(5, 0)
@@ -53,7 +53,7 @@
 	add_fingerprint(user)
 	return
 
-/obj/item/weapon/shield/energy/skrell/on_update_icon()
+/obj/item/shield/energy/skrell/on_update_icon()
 	icon_state = "skrellshield[active]"
 	if(active)
 		set_light(0.4, 0.1, 1, 2, "#006aff")

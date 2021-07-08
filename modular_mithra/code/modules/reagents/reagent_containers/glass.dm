@@ -1,4 +1,4 @@
-/obj/item/weapon/reagent_containers/glass
+/obj/item/reagent_containers/glass
 	can_be_placed_into = list(
 		/obj/machinery/chem_master/,
 		/obj/machinery/chemical_dispenser,
@@ -6,11 +6,11 @@
 		/obj/structure/table,
 		/obj/structure/closet,
 		/obj/structure/hygiene/sink,
-		/obj/item/weapon/storage,
+		/obj/item/storage,
 		/obj/machinery/atmospherics/unary/cryo_cell,
-		/obj/item/weapon/grenade/chem_grenade,
+		/obj/item/grenade/chem_grenade,
 		/mob/living/bot/medbot,
-		/obj/item/weapon/storage/secure/safe,
+		/obj/item/storage/secure/safe,
 		/obj/structure/iv_drip,
 		/obj/machinery/disposal,
 		/mob/living/simple_animal/cow,

@@ -3,7 +3,7 @@
 /////////
 // projectile global lock
 /////////
-/obj/item/weapon/gun/projectile/free_fire()
+/obj/item/gun/projectile/free_fire()
 	var/my_z = get_z(src)
 	if(!GLOB.using_map.station_levels.Find(my_z))
 		return TRUE
@@ -12,7 +12,7 @@
 /////////
 // laser global lock
 /////////
-/obj/item/weapon/gun/energy/free_fire()
+/obj/item/gun/energy/free_fire()
 	var/my_z = get_z(src)
 	if(!GLOB.using_map.station_levels.Find(my_z))
 		return TRUE
@@ -29,14 +29,14 @@
 
 /obj/item/gunbox/infantry/attack_self(mob/living/user)
 	var/list/options = list()
-	options["Ballistic - Bullpup Rifle"] = list(/obj/item/weapon/gun/projectile/automatic/bullpup_rifle/sec,/obj/item/ammo_magazine/mil_rifle/sec,/obj/item/weapon/gun/projectile/pistol/military/sec,/obj/item/weapon/grenade/frag/shell,/obj/item/weapon/grenade/frag/shell,/obj/item/weapon/grenade/frag/shell)
-	options["Energy - Laser Carbine"] = list(/obj/item/weapon/gun/energy/laser/infantry,/obj/item/weapon/gun/projectile/pistol/military/sec,/obj/item/weapon/grenade/frag,/obj/item/weapon/grenade/frag,/obj/item/weapon/grenade/frag)
+	options["Ballistic - Bullpup Rifle"] = list(/obj/item/gun/projectile/automatic/bullpup_rifle/sec,/obj/item/ammo_magazine/mil_rifle/sec,/obj/item/gun/projectile/pistol/military/sec,/obj/item/grenade/frag/shell,/obj/item/grenade/frag/shell,/obj/item/grenade/frag/shell)
+	options["Energy - Laser Carbine"] = list(/obj/item/gun/energy/laser/infantry,/obj/item/gun/projectile/pistol/military/sec,/obj/item/grenade/frag,/obj/item/grenade/frag,/obj/item/grenade/frag)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
 		for(var/new_type in things_to_spawn)
 			var/atom/movable/AM = new new_type(get_turf(src))
-			if(istype(AM, /obj/item/weapon/gun/))
+			if(istype(AM, /obj/item/gun/))
 				to_chat(user, "You have chosen \the [AM].")
 		qdel(src)
 
@@ -46,15 +46,15 @@
 
 /obj/item/gunbox/infcom/attack_self(mob/living/user)
 	var/list/options = list()
-	options["Ballistic - Tectonic"] = list(/obj/item/weapon/gun/projectile/shotgun/sabotgun,/obj/item/weapon/gun/energy/revolver/secure,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot)
-	options["Ballistic - Komodo"] = list(/obj/item/weapon/gun/projectile/automatic/bullpup_rifle/sec/lmg,/obj/item/ammo_magazine/mil_rifle/sec/large,/obj/item/ammo_magazine/mil_rifle/sec/large,/obj/item/ammo_magazine/mil_rifle/sec/large,/obj/item/weapon/gun/energy/revolver/secure)
-	options["Energy - Laser Carbine (has burst fire)"] = list(/obj/item/weapon/gun/energy/laser/infantry,/obj/item/weapon/gun/energy/revolver/secure)
+	options["Ballistic - Tectonic"] = list(/obj/item/gun/projectile/shotgun/sabotgun,/obj/item/gun/energy/revolver/secure,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot,/obj/item/ammo_magazine/shotholder/sabot)
+	options["Ballistic - Komodo"] = list(/obj/item/gun/projectile/automatic/bullpup_rifle/sec/lmg,/obj/item/ammo_magazine/mil_rifle/sec/large,/obj/item/ammo_magazine/mil_rifle/sec/large,/obj/item/ammo_magazine/mil_rifle/sec/large,/obj/item/gun/energy/revolver/secure)
+	options["Energy - Laser Carbine (has burst fire)"] = list(/obj/item/gun/energy/laser/infantry,/obj/item/gun/energy/revolver/secure)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
 		for(var/new_type in things_to_spawn)
 			var/atom/movable/AM = new new_type(get_turf(src))
-			if(istype(AM, /obj/item/weapon/gun/))
+			if(istype(AM, /obj/item/gun/))
 				to_chat(user, "You have chosen \the [AM].")
 		qdel(src)
 
@@ -65,14 +65,14 @@
 /obj/item/gunbox/infcom/secondary/attack_self(mob/living/user)
 	var/list/options = list()
 	options["Tactical Goggles x5"] = list(/obj/item/clothing/glasses/tacgoggles,/obj/item/clothing/glasses/tacgoggles,/obj/item/clothing/glasses/tacgoggles,/obj/item/clothing/glasses/tacgoggles,/obj/item/clothing/glasses/tacgoggles)
-	options["Advanced Medical Equipment"] = list(/obj/item/bodybag/cryobag,/obj/item/weapon/reagent_containers/hypospray/vial,/obj/item/weapon/reagent_containers/hypospray/autoinjector/stim,/obj/item/weapon/reagent_containers/hypospray/autoinjector/stim,/obj/item/weapon/reagent_containers/ivbag/nanoblood,/obj/item/weapon/reagent_containers/ivbag/nanoblood)
-	options["Demolitions Equipment"] = list(/obj/item/weapon/plastique,/obj/item/weapon/plastique,/obj/item/weapon/plastique,/obj/item/weapon/plastique,/obj/item/weapon/plastique,/obj/item/weapon/reagent_containers/glass/bottle/thermite,/obj/item/weapon/reagent_containers/glass/bottle/thermite,/obj/item/weapon/reagent_containers/spray)
+	options["Advanced Medical Equipment"] = list(/obj/item/bodybag/cryobag,/obj/item/reagent_containers/hypospray/vial,/obj/item/reagent_containers/hypospray/autoinjector/stim,/obj/item/reagent_containers/hypospray/autoinjector/stim,/obj/item/reagent_containers/ivbag/nanoblood,/obj/item/reagent_containers/ivbag/nanoblood)
+	options["Demolitions Equipment"] = list(/obj/item/plastique,/obj/item/plastique,/obj/item/plastique,/obj/item/plastique,/obj/item/plastique,/obj/item/reagent_containers/glass/bottle/thermite,/obj/item/reagent_containers/glass/bottle/thermite,/obj/item/reagent_containers/spray)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
 		for(var/new_type in things_to_spawn)
 			var/atom/movable/AM = new new_type(get_turf(src))
-			if(istype(AM, /obj/item/weapon/gun/))
+			if(istype(AM, /obj/item/gun/))
 				to_chat(user, "You have chosen \the [AM].")
 		qdel(src)
 
@@ -82,14 +82,14 @@
 
 /obj/item/gunbox/inftech/attack_self(mob/living/user)
 	var/list/options = list()
-	options["Ballistic - Bullpup Rifle"] = list(/obj/item/weapon/gun/projectile/automatic/bullpup_rifle/sec,/obj/item/weapon/gun/projectile/pistol/military/sec)
-	options["Ballistic - Combat Shotgun"] = list(/obj/item/weapon/gun/projectile/shotgun/pump/combat/infantry,/obj/item/weapon/gun/projectile/pistol/military/sec)
+	options["Ballistic - Bullpup Rifle"] = list(/obj/item/gun/projectile/automatic/bullpup_rifle/sec,/obj/item/gun/projectile/pistol/military/sec)
+	options["Ballistic - Combat Shotgun"] = list(/obj/item/gun/projectile/shotgun/pump/combat/infantry,/obj/item/gun/projectile/pistol/military/sec)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
 		for(var/new_type in things_to_spawn)
 			var/atom/movable/AM = new new_type(get_turf(src))
-			if(istype(AM, /obj/item/weapon/gun/))
+			if(istype(AM, /obj/item/gun/))
 				to_chat(user, "You have chosen \the [AM].")
 		qdel(src)
 
@@ -103,7 +103,7 @@
 	available_modifications = list(/decl/item_modifier/space_suit/hazard, /decl/item_modifier/space_suit/engineering/alt, /decl/item_modifier/space_suit/security/alt, /decl/item_modifier/space_suit/security)
 
 
-/obj/item/weapon/rig/military/infantry
+/obj/item/rig/military/infantry
 	name = "heavy suit control module"
 	desc = "A heavy, incredibly sleek suit of military grade armor. \
 	The minor ablative coating and composite armor makes it seem incredibly sturdy."
@@ -120,10 +120,10 @@
 		rad = ARMOR_RAD_SHIELDED
 		)
 
-	allowed = list(/obj/item/device/flashlight, /obj/item/weapon/tank,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/handcuffs,/obj/item/device/t_scanner, /obj/item/weapon/rcd, /obj/item/weapon/crowbar, \
-	/obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/device/multitool, \
-	/obj/item/device/radio, /obj/item/device/scanner/gas,/obj/item/weapon/storage/briefcase/inflatable, /obj/item/weapon/melee/baton, /obj/item/weapon/gun, \
-	/obj/item/weapon/storage/firstaid, /obj/item/weapon/reagent_containers/hypospray, /obj/item/roller, /obj/item/device/suit_cooling_unit, /obj/item/weapon/storage/)
+	allowed = list(/obj/item/device/flashlight, /obj/item/tank,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/handcuffs,/obj/item/device/t_scanner, /obj/item/rcd, /obj/item/crowbar, \
+	/obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/device/multitool, \
+	/obj/item/device/radio, /obj/item/device/scanner/gas,/obj/item/storage/briefcase/inflatable, /obj/item/melee/baton, /obj/item/gun, \
+	/obj/item/storage/firstaid, /obj/item/reagent_containers/hypospray, /obj/item/roller, /obj/item/device/suit_cooling_unit, /obj/item/storage/)
 
 	initial_modules = list(
 		/obj/item/rig_module/cooling_unit,
@@ -146,7 +146,7 @@
 /////////
 // Pistol
 /////////
-/obj/item/weapon/gun/projectile/pistol/military/sec
+/obj/item/gun/projectile/pistol/military/sec
 	name = "P10 pistol"
 	desc = "The Hephaestus Industries P10 - a mass produced kinetic sidearm in widespread service with the SCGDF. It has a slide restrictor, preventing quick-draw type shooting."
 	fire_delay = 12
@@ -159,7 +159,7 @@
 /////////
 // Sec Bullpup
 /////////
-/obj/item/weapon/gun/projectile/automatic/bullpup_rifle/sec
+/obj/item/gun/projectile/automatic/bullpup_rifle/sec
 	name = "Z9 Pitbull"
 	desc = "The Hephaestus Industries Z9 Pitbull is a newer generation bullpup carbine. It appears to be heavily modified: forcing the feed of one round type, a permanent semi-auto setting and the removal of the auto-eject function. Lame. \
 	Still has the kickass grenade launcher, though! The aforementioned forced munition is a highly specialized frangible bullet. Designed to minimize crossfire damage, alongside civilian casualties."
@@ -184,7 +184,7 @@
 		)
 
 //sec proper
-/obj/item/weapon/gun/projectile/automatic/bullpup_rifle/sec/b
+/obj/item/gun/projectile/automatic/bullpup_rifle/sec/b
 	name = "Z9B Pitbull"
 	desc = "The Hephaestus Industries Z9B Pitbull is an experimental design of the standard Z9. Having an enforced fire-rate for use aboard civilian heavy areas, it does away with some of the use. \
 	Because of the limited fire-rate, and how the mechanism functions, it has a much higher jam rate."
@@ -200,7 +200,7 @@
 		)
 
 //rifle
-/obj/item/weapon/gun/projectile/automatic/bullpup_rifle/sec/lmg
+/obj/item/gun/projectile/automatic/bullpup_rifle/sec/lmg
 	name = "Z6 Komodo"
 	desc = "The Hephaestus Industries Z6 Komodo is an old bullpup carbine conversion. \
 	It adds the possibility of automatic fire, though at the cost of likely jams."
@@ -219,14 +219,14 @@
 		)
 
 //combat shotgun
-/obj/item/weapon/gun/projectile/shotgun/pump/combat/infantry
+/obj/item/gun/projectile/shotgun/pump/combat/infantry
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders. \
 	It appears to have a firing restrictor installed, to prevent firing without authorization aboard the Dagon."
 	req_access = list(access_infantry)
 	authorized_modes = list(UNAUTHORIZED)
 
 //Beanbag shotgun, AKA, the ranged dick kick
-/obj/item/weapon/gun/projectile/shotgun/pump/beanbag
+/obj/item/gun/projectile/shotgun/pump/beanbag
 	name = "KS-40b"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders. \
 	This one appears to be modified to fire nothing but beanbags, and has an orange paintjob on the slide. Trying to fire lethals doesn't seem like a good idea."
@@ -240,7 +240,7 @@
 	one_hand_penalty = 8
 	var/explosion_chance = 100
 
-/obj/item/weapon/gun/projectile/shotgun/pump/beanbag/on_update_icon()
+/obj/item/gun/projectile/shotgun/pump/beanbag/on_update_icon()
 	..()
 	if(length(loaded) > 3)
 		for(var/i = 0 to length(loaded) - 4)
@@ -248,7 +248,7 @@
 			I.pixel_x = i * 2
 			overlays += I
 
-/obj/item/weapon/gun/projectile/shotgun/pump/beanbag/special_check()
+/obj/item/gun/projectile/shotgun/pump/beanbag/special_check()
 	if(chambered && chambered.BB && prob(explosion_chance))
 		var/damage = chambered.BB.get_structure_damage()
 		if(istype(chambered.BB, /obj/item/projectile/bullet/pellet))
@@ -269,7 +269,7 @@
 	return ..()
 
 //Z2 Hornet. Insert "Meet the Sniper"
-/obj/item/weapon/gun/projectile/hornetsniper
+/obj/item/gun/projectile/hornetsniper
 	name = "Z2 Hornet"
 	desc = "The Z2 Hornet, is an older cousin of the Z9 Pitbull Carbine. This however, is a DMR up-chambered in to 12mm-Sparrow. Accuracy is improved by a side mounted ballistic computer."
 	icon = 'modular_boh/icon/boh/items/hornet.dmi'
@@ -298,7 +298,7 @@
 /////////
 // Laser Carbine
 /////////
-/obj/item/weapon/gun/energy/laser/infantry
+/obj/item/gun/energy/laser/infantry
 	name = "G40B carbine"
 	desc = "A Hephaestus Industries G40B carbine, designed to kill with concentrated energy blasts. Fitted with safety chips to make sure discharge aboard a 'safe zone' is impossible.\
 	Additionally, it features a higher capacity."
@@ -315,7 +315,7 @@
 /////////
 // LMG
 /////////
-/obj/item/weapon/gun/projectile/automatic/l6_saw/sec
+/obj/item/gun/projectile/automatic/l6_saw/sec
 	name = "L7 SAW"
 	desc = "A rather traditionally made L7 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2561' engraved on the reciever. \
 	It appears to have a firing restrictor installed, to prevent firing without authorization aboard the Dagon."
@@ -329,7 +329,7 @@
 /////////
 // Recoilless Rifle
 /////////
-/obj/item/weapon/gun/launcher/rocket/recoilless
+/obj/item/gun/launcher/rocket/recoilless
 	name = "TVP-2"
 	desc = "A TVP-2 anti-armor recoilless rifle. Truly an anachronism of another time. \
 	This specific model was designed to fire incendiary charges. Said charges have a minor explosive charge, with an incredibly powerful, though small, incendiary powder of sorts. \
@@ -348,7 +348,7 @@
 		list(mode_name="fire", burst=1, fire_delay=null, move_delay=null, one_hand_penalty=12, burst_accuracy=null, dispersion=null),
 		)
 
-/obj/item/weapon/gun/launcher/rocket/recoilless/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/gun/launcher/rocket/recoilless/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/ammo_casing/rocket/rcr))
 		if(rockets.len < max_rockets)
 			if(!user.unEquip(I, src))
@@ -360,7 +360,7 @@
 			to_chat(usr, "<span class='warning'>\The [src] cannot hold more than one shell, for obvious reasons.</span>")
 
 
-/obj/item/weapon/gun/launcher/rocket/recoilless/free_fire()
+/obj/item/gun/launcher/rocket/recoilless/free_fire()
 	var/my_z = get_z(src)
 	if(!GLOB.using_map.station_levels.Find(my_z))
 		return TRUE
@@ -369,7 +369,7 @@
 /////////
 // SL Shotgun
 /////////
-/obj/item/weapon/gun/projectile/shotgun/sabotgun
+/obj/item/gun/projectile/shotgun/sabotgun
 	name = "GS-95 Tectonic"
 	desc = "Built for light anti-materiel use, the Hephaestus Industries GS-95 Teutonic is for frontline support infantry. \
 	It features a built in magazine, and must be loaded by hand."
@@ -392,30 +392,30 @@
 
 //General custom weaponry
 
-/obj/item/weapon/gun/projectile/revolver/medium/captain/large
+/obj/item/gun/projectile/revolver/medium/captain/large
 	name = "Ultimate Argument"
 	desc = "A shiny al-Maliki & Mosley Autococker automatic revolver, with black accents. Up-chambered for a .454 calibre round. This one has 'To the Captain of the NTSS Dagon' engraved on the grip."
 	ammo_type = /obj/item/ammo_casing/pistol/magnum/large
 	caliber = CALIBER_PISTOL_MAGNUM_LARGE
 
-/obj/item/weapon/gun/projectile/revolver/medium/captain/large/xo
+/obj/item/gun/projectile/revolver/medium/captain/large/xo
 	name = "Final Argument"
 	desc = "A shiny al-Maliki & Mosley Autococker automatic revolver, with black accents. Marketed as the 'Revolver for the Modern Era'. This one has 'To the Executive of the NTSS Dagon' engraved on the grip."
 	ammo_type = /obj/item/ammo_casing/pistol/magnum
 	caliber = CALIBER_PISTOL_MAGNUM
 
-/obj/item/weapon/gun/projectile/pistol/magnum_pistol/solar
+/obj/item/gun/projectile/pistol/magnum_pistol/solar
 	name = "Eagle"
 	desc = "The HI Eagle, a reverse engineered HT Magnus. This one has 'To the Chief of Security aboard the NTSS Dagon' engraved"
 	magazine_type = /obj/item/ammo_magazine/magnum/rubber
 	starts_loaded = 1
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/beanbag
+/obj/item/gun/projectile/shotgun/doublebarrel/beanbag
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 
 //General Custom Weaponry -> ENERGY
 
-/obj/item/weapon/gun/energy/pulse_rifle/pistol/epp
+/obj/item/gun/energy/pulse_rifle/pistol/epp
 	name = "experimental pulse pistol"
 	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. It's fitted with an incredibly tiny self-contained reactor. \
 	This provides the weapon, in theory, an infinite power source, but a horrible munition count in practice. Additionally, it cannot fire a concentrated beam, having been modified to be less-than-lethal."
@@ -426,7 +426,7 @@
 	base_parry_chance = 10
 	accuracy = 3 //To give it regular pistol accuracy
 
-/obj/item/weapon/gun/energy/particle/support
+/obj/item/gun/energy/particle/support
 	name = "defence lance"
 	desc = "A modified variant of the Ascent particle lance, usually carried by rearline combatants."
 	force = 6

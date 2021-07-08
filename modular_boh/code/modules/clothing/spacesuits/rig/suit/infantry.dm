@@ -1,4 +1,4 @@
-/obj/item/weapon/rig/recon
+/obj/item/rig/recon
 	name = "advanced recon hardsuit control module"
 	desc = "An advanced, lightweight military hardsuit. The face of Sol Central Government's Marine Corps. This model is top-of-the-line, with all sorts of modules installed. The inside of the wiring panel has has 'SCG SPECIAL OPERATIONS' stamped into it."
 	icon_state = "infantry_rig"
@@ -18,7 +18,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/recon
 	glove_type = /obj/item/clothing/gloves/rig/recon
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -41,7 +41,7 @@
 	light_overlay = "helmet_light_dual_green"
 
 //Marine Deathsquad. Don't hand these out casually.
-/obj/item/weapon/rig/recon/deathsquad
+/obj/item/rig/recon/deathsquad
 	name = "advanced assault hardsuit control module"
 	desc = "A ridiculously heavy military hardsuit. You've never seen anything like it! This model seems to have 'SCG-DEATHSQUAD' stamped into its wiring panel, how peculiar."
 	armor = list(
@@ -55,7 +55,7 @@
 		)
 
 //Infantry's "safer" version.
-/obj/item/weapon/rig/recon/infantry
+/obj/item/rig/recon/infantry
 	name = "recon hardsuit control module"
 	desc = "A lightweight military hardsuit. The face of Sol Central Government's Marine Corps. This model seems to have been modified for less intense operations."
 	armor = list(

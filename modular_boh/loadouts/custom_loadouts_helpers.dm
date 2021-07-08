@@ -13,8 +13,8 @@
 		A.replaced(H, organ_to_implant_into)
 		to_chat(H, "<span class='warning'>Implanting you with [A] in your [organ_to_implant_into.name]!</span>")
 
-	if(istype(I, /obj/item/weapon/implant))
-		var/obj/item/weapon/implant/IM = I
+	if(istype(I, /obj/item/implant))
+		var/obj/item/implant/IM = I
 		IM.forceMove(organ_to_implant_into)
 		IM.implanted(H)
 		to_chat(H, "<span class='warning'>Implanting you with [IM] in your [organ_to_implant_into.name]!</span>")

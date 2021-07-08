@@ -22,8 +22,9 @@
 /obj/machinery/telecomms/hub/preset
 	id = "Hub"
 	network = "tcommsat"
+//### Added Vesta Related element "infantry", "exploration"
 	autolinkers = list("hub", "relay", "c_relay", "s_relay", "m_relay", "r_relay", "b_relay", "1_relay", "2_relay", "3_relay", "4_relay", "5_relay", "s_relay", "science", "medical",
-	"supply", "service", "common", "command", "engineering", "security", "receiverA", "broadcasterA")
+	"supply", "service", "common", "command", "engineering", "security", "receiverA", "broadcasterA", "infantry", "exploration")
 
 /obj/machinery/telecomms/hub/preset_cent
 	id = "CentComm Hub"
@@ -106,8 +107,9 @@
 /obj/machinery/telecomms/bus/preset_three
 	id = "Bus 3"
 	network = "tcommsat"
-	freq_listening = list(SEC_FREQ, COMM_FREQ)
-	autolinkers = list("processor3", "security", "command")
+	freq_listening = list(SEC_FREQ, COMM_FREQ, INF_FREQ)
+//###VESTA.BAY Added infantry and INF_FREQ
+	autolinkers = list("processor3", "security", "command", "infantry")
 
 /obj/machinery/telecomms/bus/preset_four
 	id = "Bus 4"
@@ -271,6 +273,20 @@
 	channel_tags = list(list(ERT_FREQ, "Response Team", COMMS_COLOR_CENTCOMM), list(DTH_FREQ, "Special Ops", COMMS_COLOR_SYNDICATE))
 	produces_heat = 0
 	autolinkers = list("centcomm")
+
+//###############################################################################################################################
+//# VESTA.BAY Custom BoH content ################################################################################################
+//#################################################################################### VESTA.BAY ################################
+
+/obj/machinery/telecomms/server/presets/infantry
+	id = "Infantry Server"
+	freq_listening = list(INF_FREQ)
+	channel_tags = list(list(INF_FREQ, "Infantry", COMMS_COLOR_SKRELL))
+	autolinkers = list("infantry")
+
+//###############################################################################################################################
+//# VESTA.BAY Custom BoH content ################################################################################################
+//#################################################################################### VESTA.BAY ################################
 
 
 //Broadcasters

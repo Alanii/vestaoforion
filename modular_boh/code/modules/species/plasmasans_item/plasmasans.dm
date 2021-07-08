@@ -5,7 +5,7 @@
 	icon_state = "phorosiansuit"
 	item_state = "phorosiansuit"
 	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_PHORONGUARD
-	allowed = list(/obj/item/weapon/tank)
+	allowed = list(/obj/item/tank)
 	desc = "A special containment suit designed to protect a Phoron Restructurant Human's volatile body from outside exposure."
 	species_restricted = list(SPECIES_PLASMASANS)
 	sprite_sheets = list(
@@ -316,7 +316,7 @@
 		rad = ARMOR_RAD_SMALL
 		)
 	siemens_coefficient = 0.3
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	breach_threshold = 200
 
 /obj/item/clothing/head/helmet/space/plasmasans/nuclear
@@ -358,7 +358,7 @@
 	suits= list("Modified")
 	chosensuit = input(user, "Pick the type of suit you would like to wear.") as null|anything in suits
 
-/obj/item/weapon/tank/phoron_big
+/obj/item/tank/phoron_big
 	name = "large phoron tank"
 	icon = 'modular_boh/icon/obj/plasmasans/phoron_tanks.dmi'
 	icon_state = "phoron_big"
@@ -366,7 +366,7 @@
 	starting_pressure = list(GAS_PHORON = 10*ONE_ATMOSPHERE)
 	volume = 180
 
-/obj/item/weapon/tank/emergency/phoron
+/obj/item/tank/emergency/phoron
 	name = "emergency phoron tank"
 	desc = "An emergency air tank hastily painted orange and issued to plasma-afflicted crewmembers."
 	icon = 'modular_boh/icon/obj/plasmasans/phoron_tanks.dmi'
@@ -375,15 +375,15 @@
 	starting_pressure = list(GAS_PHORON = 10*ONE_ATMOSPHERE)
 	distribute_pressure = 12
 
-/obj/item/weapon/storage/box/phoron
+/obj/item/storage/box/phoron
 	name = "Phoron Restructurant survival kit"
 	desc = "A box decorated in warning colors that contains a limited supply of survival tools for those suffering from Phoron Restructurant syndrome."
 	icon_state = "survivaleng"
 	startswith = list(
-		/obj/item/weapon/tank/emergency/phoron = 2,
-		/obj/item/weapon/tape_roll = 1,
-		/obj/item/weapon/extinguisher/mini = 1,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 1,
+		/obj/item/tank/emergency/phoron = 2,
+		/obj/item/tape_roll = 1,
+		/obj/item/extinguisher/mini = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector = 1,
 		/obj/item/stack/medical/bruise_pack = 1,
 		/obj/item/device/flashlight/flare/glowstick = 1
 	)

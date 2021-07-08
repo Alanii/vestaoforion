@@ -36,13 +36,13 @@
 
 /obj/structure/closet/secure_closet/infantry/WillContain()
 	return list(
-		/obj/item/weapon/storage/belt/holster/security/tactical,
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/device/flashlight/maglight,
-		/obj/item/weapon/material/knife/combat,
+		/obj/item/material/knife/combat,
 		/obj/item/clothing/suit/armor/pcarrier/medium/sol,
 		/obj/item/device/gps,
 		/obj/item/gunbox/infantry,
-		/obj/item/weapon/storage/box/ammo/explo_shells
+		/obj/item/storage/box/ammo/explo_shells
 		)
 
 /obj/structure/closet/secure_closet/inftech
@@ -52,10 +52,10 @@
 
 /obj/structure/closet/secure_closet/inftech/WillContain()
 	return list(
-		/obj/item/weapon/storage/belt/holster/security/tactical,
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/device/flashlight/maglight,
-		/obj/item/weapon/material/knife/combat,
-		/obj/item/weapon/storage/box/ammo/explo_shells,
+		/obj/item/material/knife/combat,
+		/obj/item/storage/box/ammo/explo_shells,
 		/obj/item/gunbox/inftech,
 		/obj/item/clothing/suit/armor/pcarrier/medium/sol
 		)
@@ -80,15 +80,15 @@
 
 /obj/structure/closet/secure_closet/squad_lead/WillContain()
 	return list(
-		/obj/item/weapon/storage/belt/holster/security/tactical,
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/device/flashlight/maglight,
-		/obj/item/weapon/material/knife/combat,
+		/obj/item/material/knife/combat,
 		/obj/item/solbanner,
 		/obj/item/clothing/suit/armor/pcarrier/medium/sol,
 		/obj/item/gunbox/infcom,
 		/obj/item/gunbox/infcom/secondary,
 		/obj/item/device/gps,
-		/obj/item/weapon/storage/box/ammo/explo_shells,
+		/obj/item/storage/box/ammo/explo_shells,
 		)
 
 //## VESTA.BAY # INFANTRY LOCKERS #############
@@ -103,28 +103,28 @@
 /obj/structure/closet/secure_closet/psiadvisor/WillContain()
 	return list(
 		/obj/item/device/radio,
-		/obj/item/weapon/pen,
+		/obj/item/pen,
 		/obj/item/device/tape/random,
 		/obj/item/device/taperecorder,
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
-		/obj/item/weapon/material/clipboard,
-		/obj/item/weapon/folder/blue,
+		/obj/item/material/clipboard,
+		/obj/item/folder/blue,
 		/obj/item/device/radio/headset/headset_com,
 		/obj/item/device/radio/headset/headset_com/alt,
-		/obj/item/weapon/storage/belt/general,
+		/obj/item/storage/belt/general,
 		/obj/item/device/flashlight,
-		/obj/item/weapon/storage/box/psykerimplants,
-		/obj/item/weapon/storage/box/psykerimplants,
+		/obj/item/storage/box/psykerimplants,
+		/obj/item/storage/box/psykerimplants,
 		/obj/item/clothing/suit/storage/toggle/labcoat/foundation,
 		/obj/item/clothing/under/det/grey,
 		/obj/item/clothing/gloves/white,
 		/obj/item/clothing/shoes/dress,
-		/obj/item/weapon/storage/box/large/psinullers,
+		/obj/item/storage/box/large/psinullers,
 		/obj/item/gunbox/psyker,
-		/obj/item/weapon/storage/secure/briefcase/jerraman,
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack, /obj/item/weapon/storage/backpack/satchel/grey)),
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag, /obj/item/weapon/storage/backpack/messenger))
+		/obj/item/storage/secure/briefcase/jerraman,
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack, /obj/item/storage/backpack/satchel/grey)),
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag, /obj/item/storage/backpack/messenger))
 	)
 
 //## VESTA.BAY # SECURITY CADET #############
@@ -139,15 +139,15 @@
 		/obj/item/device/radio/headset/headset_sec,
 		/obj/item/device/radio/headset/headset_sec/alt,
 		/obj/item/device/flash,
-		/obj/item/weapon/reagent_containers/spray/pepper,
-		/obj/item/weapon/melee/baton/loaded,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/melee/baton/loaded,
 		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
 		/obj/item/taperoll/police,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/device/holowarrant,
 		/obj/item/device/flashlight/maglight,
-		/obj/item/weapon/storage/belt/security)
+		/obj/item/storage/belt/security)
 
 //## VESTA.BAY # SEA MARINE ###################
 
@@ -161,18 +161,18 @@
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/device/radio/headset/smcattache,
 		/obj/item/device/radio/headset/smcattache/alt,
-		/obj/item/weapon/storage/belt/general,
-		/obj/item/weapon/storage/belt/holster/general,
-		/obj/item/weapon/melee/telebaton,
+		/obj/item/storage/belt/general,
+		/obj/item/storage/belt/holster/general,
+		/obj/item/melee/telebaton,
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
-		/obj/item/weapon/material/clipboard,
+		/obj/item/material/clipboard,
 		/obj/item/device/holowarrant,
-		/obj/item/weapon/folder/blue,
-		/obj/item/weapon/material/knife/folding/swiss,
+		/obj/item/folder/blue,
+		/obj/item/material/knife/folding/swiss,
 		/obj/item/gunbox,
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack, /obj/item/weapon/storage/backpack/satchel/grey)),
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag, /obj/item/weapon/storage/backpack/messenger))
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack, /obj/item/storage/backpack/satchel/grey)),
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag, /obj/item/storage/backpack/messenger))
 	)
 
 //Hestia Anti-Boarding closets//
@@ -205,19 +205,19 @@
 	return list(
 		/obj/item/device/flash,
 		/obj/item/clothing/accessory/storage/holster/armpit,
-		/obj/item/weapon/storage/secure/briefcase,
+		/obj/item/storage/secure/briefcase,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/gunbox,
-		/obj/item/weapon/material/clipboard,
-		/obj/item/weapon/folder,
+		/obj/item/material/clipboard,
+		/obj/item/folder,
 		/obj/item/device/tape/random = 3,
 		/obj/item/device/radio/headset/headset_com,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/under/rank/internalaffairs/plain/solgov,
 		/obj/item/clothing/suit/storage/toggle/suit/black,
 		/obj/item/clothing/glasses/sunglasses/big,
-		/obj/item/weapon/storage/belt/holster/general,
+		/obj/item/storage/belt/holster/general,
 		/obj/item/armorbox/sol,
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack, /obj/item/weapon/storage/backpack/satchel)),
-		new /datum/atom_creator/simple(/obj/item/weapon/storage/backpack/messenger, 50)
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack, /obj/item/storage/backpack/satchel)),
+		new /datum/atom_creator/simple(/obj/item/storage/backpack/messenger, 50)
 	)

@@ -55,10 +55,10 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 	is_critical = 1
 
 /obj/machinery/power/apc/high
-	cell_type = /obj/item/weapon/cell/high
+	cell_type = /obj/item/cell/high
 
 /obj/machinery/power/apc/high/inactive
-	cell_type = /obj/item/weapon/cell/high
+	cell_type = /obj/item/cell/high
 	lighting = 0
 	equipment = 0
 	environ = 0
@@ -66,13 +66,13 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 	coverlocked = 0
 
 /obj/machinery/power/apc/super
-	cell_type = /obj/item/weapon/cell/super
+	cell_type = /obj/item/cell/super
 
 /obj/machinery/power/apc/super/critical
 	is_critical = 1
 
 /obj/machinery/power/apc/hyper
-	cell_type = /obj/item/weapon/cell/hyper
+	cell_type = /obj/item/cell/hyper
 
 // Main APC code
 /obj/machinery/power/apc
@@ -86,9 +86,9 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 	power_channel = LOCAL      // Do not manipulate this; you don't want to power the APC off itself.
 	interact_offline = TRUE    // Can use UI even if unpowered
 	uncreated_component_parts = list(
-		/obj/item/weapon/stock_parts/power/terminal,
-		/obj/item/weapon/stock_parts/power/apc,
-		/obj/item/weapon/stock_parts/power/battery
+		/obj/item/stock_parts/power/terminal,
+		/obj/item/stock_parts/power/apc,
+		/obj/item/stock_parts/power/battery
 		)
 	req_access = list(access_engine_equip)
 	clicksound = "switch"
@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 	var/needs_powerdown_sound
 	var/area/area
 	var/areastring = null
-	var/cell_type = /obj/item/weapon/cell/standard
+	var/cell_type = /obj/item/cell/standard
 	var/opened = 0 //0=closed, 1=opened, 2=cover removed
 	var/shorted = 0
 	var/lighting = POWERCHAN_ON_AUTO
@@ -223,15 +223,15 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 /obj/machinery/power/apc/proc/init_round_start()
 	has_electronics = 2 //installed and secured
 
-	var/obj/item/weapon/stock_parts/power/battery/bat = get_component_of_type(/obj/item/weapon/stock_parts/power/battery)
+	var/obj/item/stock_parts/power/battery/bat = get_component_of_type(/obj/item/stock_parts/power/battery)
 	bat.add_cell(src, new cell_type(bat))
-	var/obj/item/weapon/stock_parts/power/terminal/term = get_component_of_type(/obj/item/weapon/stock_parts/power/terminal)
+	var/obj/item/stock_parts/power/terminal/term = get_component_of_type(/obj/item/stock_parts/power/terminal)
 	term.make_terminal(src)
 
 	queue_icon_update()
 
 /obj/machinery/power/apc/proc/terminal()
-	var/obj/item/weapon/stock_parts/power/terminal/term = get_component_of_type(/obj/item/weapon/stock_parts/power/terminal)
+	var/obj/item/stock_parts/power/terminal/term = get_component_of_type(/obj/item/stock_parts/power/terminal)
 	return term && term.terminal
 
 /obj/machinery/power/apc/examine(mob/user, distance)
@@ -425,7 +425,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 
 /obj/machinery/power/apc/components_are_accessible(var/path)
 	. = opened
-	if(ispath(path, /obj/item/weapon/stock_parts/power/terminal))
+	if(ispath(path, /obj/item/stock_parts/power/terminal))
 		. = min(., (has_electronics != 2))
 
 //attack with an item - open/close cover, insert cell, or (un)lock interface
@@ -456,7 +456,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 						user.visible_message(\
 							SPAN_WARNING("\The [user] has removed the power control board from \the [src]!"),\
 							SPAN_NOTICE("You remove the power control board."))
-						new /obj/item/weapon/module/power_control(loc)
+						new /obj/item/module/power_control(loc)
 				return TRUE
 
 			else if (opened != 2) //cover isn't removed
@@ -508,7 +508,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 		return TRUE
 
 	// trying to unlock the interface with an ID card
-	if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/modular_computer))
+	if (istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
 		if(emagged)
 			to_chat(user, "The interface is broken.")
 		else if(opened)
@@ -529,7 +529,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 		return TRUE
 
 	// Inserting board.
-	if(istype(W, /obj/item/weapon/module/power_control))
+	if(istype(W, /obj/item/module/power_control))
 		if(stat & BROKEN)
 			to_chat(user, SPAN_WARNING("You cannot put the board inside, the frame is damaged."))
 			return TRUE
@@ -559,7 +559,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 		if(terminal())
 			to_chat(user, SPAN_WARNING("The wire connection is in the way."))
 			return TRUE
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if (WT.get_fuel() < 3)
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			return
@@ -716,7 +716,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 /obj/machinery/power/apc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!user)
 		return
-	var/obj/item/weapon/cell/cell = get_cell()
+	var/obj/item/cell/cell = get_cell()
 
 	var/list/data = list(
 		"pChan_Off" = POWERCHAN_OFF,
@@ -783,7 +783,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 		ui.set_auto_update(1)
 
 /obj/machinery/power/apc/proc/report()
-	var/obj/item/weapon/cell/cell = get_cell()
+	var/obj/item/cell/cell = get_cell()
 	return "[area.name] : [equipment]/[lighting]/[environ] ([lastused_equip+lastused_light+lastused_environ]) : [cell? cell.percent() : "N/C"] ([charging])"
 
 /obj/machinery/power/apc/proc/update()
@@ -804,7 +804,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 
 	area.power_change()
 
-	var/obj/item/weapon/cell/cell = get_cell()
+	var/obj/item/cell/cell = get_cell()
 	if(!cell || cell.charge <= 0)
 		if(needs_powerdown_sound == TRUE)
 			playsound(src, 'sound/machines/apc_nopower.ogg', 75, 0)
@@ -951,7 +951,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 	else
 		main_status = 2
 
-	var/obj/item/weapon/cell/cell = get_cell()
+	var/obj/item/cell/cell = get_cell()
 	if(!cell || shorted) // We aren't going to be doing any power processing in this case.
 		charging = 0
 	else
@@ -961,7 +961,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 			log_debug("Status: [main_status] - Excess: [excess] - Last Equip: [lastused_equip] - Last Light: [lastused_light] - Longterm: [longtermpower]")
 
 		//update state
-		var/obj/item/weapon/stock_parts/power/battery/power = get_component_of_type(/obj/item/weapon/stock_parts/power/battery)
+		var/obj/item/stock_parts/power/battery/power = get_component_of_type(/obj/item/stock_parts/power/battery)
 		lastused_charging = max(power && power.cell && (power.cell.charge - power.last_cell_charge) * CELLRATE, 0)
 		charging = lastused_charging ? 1 : 0
 		if(cell.fully_charged())
@@ -987,7 +987,7 @@ GLOBAL_LIST_INIT(global_apc_list,list())
 		longtermpower += 1
 	else if(longtermpower > -10)
 		longtermpower -= 2
-	var/obj/item/weapon/cell/cell = get_cell()
+	var/obj/item/cell/cell = get_cell()
 	var/percent = cell && cell.percent()
 
 	if(!cell || shorted || (stat & NOPOWER) || !operating)
@@ -1048,7 +1048,7 @@ obj/machinery/power/apc/proc/autoset(var/cur_state, var/on)
 /obj/machinery/power/apc/emp_act(severity)
 	if(emp_hardened)
 		return
-	var/obj/item/weapon/cell/cell = get_cell()
+	var/obj/item/cell/cell = get_cell()
 	// Fail for 8-12 minutes (divided by severity)
 	// Division by 2 is required, because machinery ticks are every two seconds. Without it we would fail for 16-24 minutes.
 	if(is_critical)
@@ -1067,7 +1067,7 @@ obj/machinery/power/apc/proc/autoset(var/cur_state, var/on)
 	..()
 
 /obj/machinery/power/apc/ex_act(severity)
-	var/obj/item/weapon/cell/C = get_cell()
+	var/obj/item/cell/C = get_cell()
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -1118,7 +1118,7 @@ obj/machinery/power/apc/proc/autoset(var/cur_state, var/on)
 
 /obj/machinery/power/apc/proc/set_chargemode(new_mode)
 	chargemode = new_mode
-	var/obj/item/weapon/stock_parts/power/battery/power = get_component_of_type(/obj/item/weapon/stock_parts/power/battery)
+	var/obj/item/stock_parts/power/battery/power = get_component_of_type(/obj/item/stock_parts/power/battery)
 	if(power)
 		power.can_charge = chargemode
 		power.charge_wait_counter = initial(power.charge_wait_counter)
@@ -1175,7 +1175,7 @@ obj/machinery/power/apc/proc/autoset(var/cur_state, var/on)
 		CHECK_TICK
 
 
-/obj/item/weapon/module/power_control
+/obj/item/module/power_control
 	name = "power control module"
 	desc = "Heavy-duty switching circuits for power control."
 	icon = 'icons/obj/module.dmi'
